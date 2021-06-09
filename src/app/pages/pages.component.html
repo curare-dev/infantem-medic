@@ -1,0 +1,10 @@
+<mat-drawer-container autosize>
+  <!-- Drawer -->
+  <!-- Header -->
+  <app-header></app-header>
+  <!-- Sidebar -->
+  <mat-drawer #drawer mode="side" style="width: 200px; text-align: center; height: 100%;" opened>
+    <app-sidebar></app-sidebar>
+  </mat-drawer>
+  <router-outlet></router-outlet>
+</mat-drawer-container>

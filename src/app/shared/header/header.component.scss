@@ -1,0 +1,16 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.logo{
+  width: 250px;
+  height: 79px;
+}
+
+mat-toolbar{
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(43, 95, 159, 1.0);
+}

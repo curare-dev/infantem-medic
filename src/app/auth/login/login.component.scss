@@ -1,0 +1,45 @@
+.form{
+  margin: 1%;
+  max-width: 500px;
+
+}
+
+.container{
+  display: block;
+  text-align: center;
+  border-left: 1px solid rgba($color: #000000, $alpha: 0.2) ;
+  height: 100%;
+}
+
+.rigth{
+  position: absolute;
+  right: 0;
+}
+
+.left{
+  position: absolute;
+  left: 0;
+}
+
+.logo{
+  display: block;
+  margin: auto;
+  width: 150px;
+  height: 150px;
+}
+
+mat-form-field{
+  margin: 10px;
+  width: 75%;
+}
+
+.input{
+  background-color: rgba(235, 235, 235, 1);
+}
+
+small{
+  margin: 3%;
+  color: rgba(43, 95, 159, 1.0);
+  text-decoration: underline;
+  cursor: pointer;
+}

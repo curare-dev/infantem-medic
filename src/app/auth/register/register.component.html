@@ -1,0 +1,55 @@
+<div class="container left">
+  <img style="width: 100%; height: 100%;" src="https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&dpr=1" alt="">
+</div>
+<div class="container rigth input">
+    <img class="logo" src="../../../../assets/Logotipo-con-área-de-protección.png" alt="logo">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="form">
+    <mat-form-field hintLabel="Opcional">
+      <mat-label>Sufijo</mat-label>
+      <input type="text" matInput formControlName="sufijo" placeholder="Ej: Dr., Dra.,">
+    </mat-form-field>
+    <mat-form-field hintLabel="Obligatorio">
+      <mat-label>Especialidad</mat-label>
+      <input type="text" matInput formControlName="especialidad" placeholder="Ej: Neumologia, General">
+    </mat-form-field>
+    <mat-form-field hintLabel="Obligatorio">
+      <mat-label>Nombre(s)</mat-label>
+      <input type="text" matInput formControlName="nombre">
+    </mat-form-field>
+    <mat-form-field hintLabel="Obligatorio">
+      <mat-label>Apellido Paterno</mat-label>
+      <input type="text" matInput formControlName="apPaterno">
+    </mat-form-field>
+    <mat-form-field hintLabel="Opcional">
+      <mat-label>Apellido Materno</mat-label>
+      <input type="text" matInput formControlName="apMaterno">
+    </mat-form-field>
+    <mat-form-field hintLabel="Obligatorio">
+      <mat-label>E-mail</mat-label>
+      <input type="text" matInput formControlName="email" placeholder="medico@medico.com">
+    </mat-form-field>
+    <mat-form-field hintLabel="Obligatorio">
+      <mat-label>Contraseña</mat-label>
+      <input type="password" matInput formControlName="password">
+    </mat-form-field>
+    <mat-form-field hintLabel="Obligatorio">
+      <mat-label>Confirmar Contraseña</mat-label>
+      <input type="password" matInput formControlName="repeatPassword">
+    </mat-form-field>
+    <mat-form-field hintLabel="Opcional">
+      <mat-label>Numero Telefonico</mat-label>
+      <input type="text" matInput formControlName="numTel">
+    </mat-form-field>
+    <!-- <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+      <mat-label>Enter some input</mat-label>
+      <input matInput #input maxlength="10" placeholder="Ex. Nougat">
+      <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+    </mat-form-field> -->
+    <div>
+      <button mat-button type="submit" [disabled]='!registerForm.valid' style="margin-bottom: 10px;">Registrarse</button>
+    </div>
+    <p>
+      <small routerLink="/login">Ya tienes una cuenta?</small>
+    </p>
+  </form>
+</div>
