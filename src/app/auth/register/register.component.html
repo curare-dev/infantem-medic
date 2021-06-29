@@ -34,7 +34,10 @@
     </mat-form-field>
     <mat-form-field hintLabel="Obligatorio">
       <mat-label>Confirmar Contraseña</mat-label>
-      <input type="password" matInput formControlName="repeatPassword">
+      <input type="password" matInput formControlName="repeatPassword" (ngModelChange)="matchPasswords($event)">
+      <mat-error *ngIf="!passwordMatch">
+        Las contraseñas deben coincidir
+      </mat-error>    
     </mat-form-field>
     <mat-form-field hintLabel="Opcional">
       <mat-label>Numero Telefonico</mat-label>
@@ -46,8 +49,11 @@
       <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
     </mat-form-field> -->
     <div>
-      <button mat-button type="submit" [disabled]='!registerForm.valid' style="margin-bottom: 10px;">Registrarse</button>
+      <button mat-button type="submit" [disabled]='!registerForm.valid || !passwordMatch' style="margin-bottom: 10px;">Registrarse</button>
     </div>
+    <p *ngIf="error">
+      <span *ngFor="let item of error">{{item.message}}</span>
+    </p>
     <p>
       <small routerLink="/login">Ya tienes una cuenta?</small>
     </p>

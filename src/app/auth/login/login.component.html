@@ -13,7 +13,13 @@
       <input type="password" matInput formControlName="password">
     </mat-form-field>
     <div>
-      <button mat-button type="submit" [disabled]='!loginForm.valid' style="margin-bottom: 10px;">Registrarse</button>
+      <button mat-button type="submit" [disabled]='!loginForm.valid' style="margin-bottom: 10px;">
+        <mat-spinner *ngIf="loading" diameter="30"></mat-spinner>
+        <span *ngIf="!loading">Ingresar</span>
+      </button>
+      <p *ngIf="error">
+        <span class="error" *ngFor="let item of error">{{item.message}}</span>
+      </p>
       <p>
         <small routerLink="/forgotPassword">Olvidaste tu Contraseña?</small>
         <small routerLink="/register">Aun no estas Registrado?</small>
