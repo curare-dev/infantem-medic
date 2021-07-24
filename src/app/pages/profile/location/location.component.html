@@ -1,0 +1,38 @@
+  <form [formGroup]="locationForm" (ngSubmit)="onSubmit()" class="form">
+    <div>
+      <mat-form-field hintLabel="Obligatorio">
+        <mat-label>Calle</mat-label>
+        <input type="text" matInput formControlName="street" placeholder="Calle...">
+      </mat-form-field>
+      <mat-form-field hintLabel="Obligatorio">
+        <mat-label>Número</mat-label>
+        <input type="number" matInput formControlName="number" placeholder="1234">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field hintLabel="Obligatorio">
+        <mat-label>Colonia</mat-label>
+        <input type="text" matInput formControlName="city" placeholder="Colonia...">
+      </mat-form-field>
+      <mat-form-field hintLabel="Obligatorio">
+        <mat-label>Estado</mat-label>
+        <input type="text" matInput formControlName="state">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field hintLabel="Obligatorio">
+        <mat-label>Código Postal</mat-label>
+        <input type="number" matInput formControlName="postalCode">
+      </mat-form-field>
+      <mat-form-field hintLabel="Obligatorio">
+        <mat-label>País</mat-label>
+        <input type="text" matInput formControlName="country">
+      </mat-form-field>
+    </div>
+    <div>
+      <button mat-button type="submit" [disabled]='!locationForm.valid' style="margin-top: 10px;">Actualizar Datos</button>
+    </div>
+  </form>
+  <div class="toggle">
+    <mat-slide-toggle [(ngModel)]="isChecked" (change)="disableForm()" color="primary">Editar Datos {{isChecked}}</mat-slide-toggle>
+  </div>

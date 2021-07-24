@@ -7,6 +7,9 @@ import { AuthGuard } from './guards/auth.guard';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound.component';
 import { PagesComponent } from './pages/pages.component';
+import { ConfigurationComponent } from './pages/profile/configuration/configuration.component';
+import { GeneralInfoComponent } from './pages/profile/general-info/general-info.component';
+import { LocationComponent } from './pages/profile/location/location.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
@@ -16,7 +19,15 @@ const routes: Routes = [
     canActivate: [ AuthGuard ],
     children: [
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'profile', component: ProfileComponent},
+      {
+        path: 'profile',
+        component: ProfileComponent,
+        children: [
+          { path: 'general-info', component: GeneralInfoComponent },
+          { path: 'location', component: LocationComponent },
+          { path: 'configuration', component: ConfigurationComponent}
+        ],
+      },
       { path: '',   redirectTo: '/dashboard', pathMatch: 'full' },
     ],
   },

@@ -3,9 +3,14 @@
   <a routerLink="/"><img class="logo" src="./../../../assets/Logo-xs.png" alt=""></a>
   <span class="spacer"></span>
   <!-- Aqui va la parte de las notificaciones -->
-  <button mat-icon-button style="color: white;">
+  <button mat-icon-button [matMenuTriggerFor]="menu" style="color: white;">
     <mat-icon>message</mat-icon>
   </button>
+  <!-- ngFor de cada mensaje que llegue -->
+  <mat-menu #menu="matMenu" xPosition="before">
+    <button mat-menu-item>Mensaje 1</button>
+    <button mat-menu-item>Mensaje 2</button>
+  </mat-menu>
   <!-- Aqui va la parte del perfil -->
   <button mat-icon-button style="color: white;">
     <mat-icon>circle</mat-icon>

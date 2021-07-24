@@ -1,0 +1,44 @@
+<form [formGroup]="generalInfoForm" (ngSubmit)="onSubmit()" class="form">
+  <div>
+    <mat-form-field hintLabel="Opcional">
+      <mat-label>Sufijo</mat-label>
+      <input type="text" matInput formControlName="sufijo" placeholder="Dr, Dra...">
+    </mat-form-field>
+    <mat-form-field hintLabel="Obligatorio">
+      <mat-label>Especialidad</mat-label>
+      <input type="text" matInput formControlName="especialidad" placeholder="Neumologia, Alergologia...">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field hintLabel="Obligatorio">
+      <mat-label>Nombre</mat-label>
+      <input type="text" matInput formControlName="nombre" [attr.disabled]="!isChecked">
+    </mat-form-field>
+    <mat-form-field hintLabel="Obligatorio">
+      <mat-label>Apellido Paterno</mat-label>
+      <input type="text" matInput formControlName="apPaterno">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field hintLabel="Opcional">
+      <mat-label>Apellido Materno</mat-label>
+      <input type="text" matInput formControlName="apMaterno">
+    </mat-form-field>
+    <mat-form-field hintLabel="Obligatorio">
+      <mat-label>Numero Telefonico</mat-label>
+      <input type="number" matInput formControlName="numTel" placeholder="+52">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field hintLabel="No se puede editar">
+      <mat-label>Email</mat-label>
+      <input type="text" matInput formControlName="email" />
+    </mat-form-field>
+  </div>
+  <div>
+    <button mat-button type="submit" [disabled]='!generalInfoForm.valid'>Actualizar Datos</button>
+  </div>
+</form>
+<div class="toggle">
+  <mat-slide-toggle [(ngModel)]="isChecked" (change)="disableForm()" color="primary">Editar Datos {{isChecked}}</mat-slide-toggle>
+</div>

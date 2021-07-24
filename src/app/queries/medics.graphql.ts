@@ -7,8 +7,10 @@ export const getMedic = gql`
       sufijo
       nombre
       apPaterno
+      apMaterno
       especialidad
       email
+      numTel
     }
   }
 `;
@@ -26,5 +28,30 @@ export const authMedic = gql`
     authMedic( input: $input ){
       token
     }
+  }
+`;
+
+export const verifyToken = gql`
+  query verifyToken( $token: String! ){
+    verifyToken(token: $token)
+  }
+`;
+
+export const getLocation = gql`
+  query getLocation( $id: ID! ){
+    getLocation(id: $id){
+      street
+      number
+      city
+      state
+      postalCode
+      country
+    }
+  }
+`;
+
+export const setLocation = gql`
+  mutation medicLocation ( $input: LocationInput ){
+    medicLocation( input: $input )
   }
 `;

@@ -1,1 +1,19 @@
-<p>profile works!</p>
+<div class="profile-group">
+  <div class="profile-img" (click)="getFile()">
+    <button mat-fab [ngClass]="imageSrc ? 'profile-icon' : 'profile-photo'" color="disabled">
+      <mat-icon>upload</mat-icon>
+      Actualizar Imagen
+    </button>
+    <img [ngClass]="imageSrc && 'profile-photo'" [src]="imageSrc && imageSrc">
+    <input type="file" (change)="handleInputFileSelector($event)" accept="image/*" style="display: none;">
+  </div>
+  <div class="profile-data">
+    <nav mat-tab-nav-bar mat-align-tabs="center">
+      <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.link" routerLinkActive #rla="routerLinkActive" [active]="rla.isActive">
+        {{ link.label }}
+      </a>
+    </nav>
+      <router-outlet></router-outlet>
+  </div>
+</div>
+
